@@ -5,18 +5,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Travel Planner</title>
+
+  <!-- FOUNDATION CDN LINK -->
+  <!-- Compressed CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+
+  <!-- Compressed JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+
+
   <link rel="stylesheet" href="./Assests/CSS/style.css">
 </head>
 
 <body>
+    <header id='mainHeader'>
+        <h1>🌎 Travel Planner</h1>
+    </header>
+    <main>
+        <form class="grid-container fluid">
+            <div class="grid-x grid-margin-x align-center">
+                <section class="cell medium-6 large-4" >
+                <label for="location">WHERE:
+                    <select id="location" name="location">
+                        <!-- Location options from API -->
+                    </select>
+                </label>
+                </section>
 
+                <section class="cell medium-6 large-4 ">
+                    <label for="budgetMax">BUDGET:
+                        <!-- Budget API Connection -->
+                        <input type="text" id="budgetMax" name="budgetMax">
+                    </label>
+                </section>
+            </div>
+            <div class="grid-x grid-margin-x align-center">
+                <section class="cell medium-6 large-4">
+                    <!-- Trip Dates section -->
+                </section>
+                <section class="cell medium-6 large-4">
+                    <button type="submit" value="submit">SUBMIT</button>
+                </section>
+            </div>
+        </form>
+    </main>
+    <footer>
 
-
-<input type="number" id="budget">
-<button id="send">send</button>
-
-
-
-  <script src="./Assests/Script/script.js"></script>
+    </footer>
+    <script src="./Assests/Script/script.js"></script>
 </body>
 </html>
