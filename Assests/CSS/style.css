@@ -1,0 +1,25 @@
+#mainHeader{
+    margin: auto;
+    background-color:black;
+    color: white;
+}
+
+#mainHeader h1{
+    font-weight: bolder;
+}
+
+
+
+/* Testing classes */
+.border-red{
+    border: solid red 2px;
+}
+.border-green{
+    border: solid green 2px;
+}
+.border-blue{
+    border: solid blue 2px;
+}
+.border-yellow{
+    border: solid yellow 2px;
+}
