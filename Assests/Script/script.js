@@ -16,10 +16,8 @@ sendBtn.addEventListener("click", function(event){
 
 
 //currency converter api
-const settings = {
-	async: true,
-	crossDomain: true,
-	url: 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD',
+const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD';
+const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '99ba836070msh21a815cb6cbff68p1660a8jsn0470850fa436',
@@ -27,6 +25,19 @@ const settings = {
 	}
 };
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
+fetch(url, options)
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+console.log(data)
 });
+
+
+// try {
+// 	const response = await fetch(url, options);
+// 	const result = await response.json();
+// 	console.log(result);
+// } catch (error) {
+// 	console.error(error);
+// }
