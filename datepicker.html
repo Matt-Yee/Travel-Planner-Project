@@ -4,15 +4,20 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./Assests/Script/script.js"></script>
   <title>Travel Planner</title>
 </head>
 
 <body>
 <div id="datePicker">
     <label for="start-date">Trip goes from</label>
-    <input type="text" id="start-date" name="start-date">
+    <!-- please make sure these are autocomplete off -->
+    <input type="text" id="start-date" name="start-date" autocomplete="off">
     <label for=end-date">to</label>
-    <input type="text" id="end-date" name="end-date">
+    <input type="text" id="end-date" name="end-date" autocomplete="off">
     <div>Trip is <span id="tripLength">0</span> days in length</div>
 </div>
 
@@ -21,12 +26,9 @@
 
 
 
-  <script src="./Assests/Script/script.js"></script>
+
 </body>
 <footer>
     <!--These are the tags I believe I need for my date picker to work, jquery, jqueryui, and dayJS-->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 </footer>
 </html>
