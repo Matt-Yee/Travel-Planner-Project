@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
 
   <!-- Compressed JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 
 
@@ -22,13 +23,13 @@
         <h1>🌎 Travel Planner</h1>
     </header>
     <main>
-        <form class="grid-container fluid">
+        <form id="planner-form" class="grid-container fluid">
             <div class="grid-x grid-margin-x align-center">
                 <section class="cell medium-6 large-4" >
                 <label for="location">WHERE:
-                    <select id="location" name="location">
+                    <input id="location" name="location">
                         <!-- Location options from API -->
-                    </select>
+                </input>
                 </label>
                 </section>
 
