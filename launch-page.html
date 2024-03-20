@@ -14,6 +14,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 
+  <!-- DayJS -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <!-- Jquery UI -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
   <link rel="stylesheet" href="./Assests/CSS/style.css">
 </head>
@@ -42,6 +48,14 @@
             </div>
             <div class="grid-x grid-margin-x align-center">
                 <section class="cell medium-6 large-4">
+                    <div id="datePicker">
+                        <label for="start-date">Trip goes from</label>
+                        <!-- please make sure these are autocomplete off -->
+                        <input type="text" id="start-date" name="start-date" autocomplete="off">
+                        <label for=end-date">to</label>
+                        <input type="text" id="end-date" name="end-date" autocomplete="off">
+                        <div>Trip is <span id="tripLength">0</span> days in length</div>
+                    </div>
                     <!-- Trip Dates section -->
                 </section>
                 <section class="cell medium-6 large-4">
