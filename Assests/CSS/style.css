@@ -23,3 +23,11 @@
 .border-yellow{
     border: solid yellow 2px;
 }
+
+
+/* box around budget value on activities page */
+p {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+}

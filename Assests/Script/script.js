@@ -114,7 +114,8 @@ function getBudget(){
 //added function in to link to activites page
 sendBtn.addEventListener("click", function(event){
     event.preventDefault();
-    window.location.replace("activites.html");
+    //links to activities page
+    window.location.href="activites.html";
     getBudget();
 })
 
