@@ -3,7 +3,7 @@ const apiKey = '6b9efb5cdad556136ff528d1bdc2bae5';
 const forecastDiv = document.getElementById('forecast'); // ID TBD
 const form = document.getElementById('planner-form');
 
-let Destination = JSON.parse(localStorage.getItem('Location')) || [];
+var Destination = JSON.parse(localStorage.getItem('Location')) || [];
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,6 +31,9 @@ form.addEventListener('submit', (event) => {
                 }
             });
     }
+    getBudget();
+    location.assign("activites.html");
+
 });
 
 $(function(){
@@ -100,4 +103,40 @@ $(function(){
       if(localStorage.getItem("tripStart")!=null)tripStart=dayjs(localStorage.getItem("tripStart"));
       if(localStorage.getItem("tripEnd")!=null)tripEnd=dayjs(localStorage.getItem("tripEnd"));
   }
+});
+
+
+const budgetEl = document.getElementById("budget");
+const sendBtn = document.getElementById("submit");
+
+function getBudget(){
+    const inputValue = budgetEl.value;
+    console.log(inputValue)
+    localStorage.setItem("number", inputValue);
+}
+
+//added function in to link to activites page
+// sendBtn.addEventListener("click", function(event){
+//     event.preventDefault();
+//     location.assign("activites.html");
+//     getBudget();
+// })
+
+
+//currency converter api
+const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '99ba836070msh21a815cb6cbff68p1660a8jsn0470850fa436',
+		'X-RapidAPI-Host': 'currency-converter241.p.rapidapi.com'
+	}
+};
+
+fetch(url, options)
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+console.log(data)
 });
