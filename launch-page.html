@@ -5,14 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Travel Planner</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <!-- FOUNDATION CDN LINK -->
-  <!-- Compressed CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
 
-  <!-- Compressed JavaScript -->
+  <!-- FOUNDATION CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+  <!-- JQuery UI CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+  <!-- Foundation JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <!-- JQuery UI Javascript -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
 
   <link rel="stylesheet" href="./Assests/CSS/style.css">
@@ -25,27 +29,34 @@
     <main>
         <form id="planner-form" class="grid-container fluid">
             <div class="grid-x grid-margin-x align-center">
-                <section class="cell medium-6 large-4" >
-                <label for="location">WHERE:
-                    <input id="location" name="location">
-                        <!-- Location options from API -->
-                </input>
-                </label>
-                </section>
 
-                <section class="cell medium-6 large-4 ">
-                    <label for="budget">BUDGET:
-                        <!-- Budget API Connection -->
-                        <input type="number" id="budget" name="budget">
+                <section class="cell medium-6 large-4 " >
+                    <label for="location">WHERE:
+                        <input type="text" id="location" name="location">
                     </label>
                 </section>
+
+                <section class="cell medium-6 large-4">
+                    <label for="budget">BUDGET:
+                        <input type="text" id="budget" name="budget">
+                    </label>
+                </section>
+
             </div>
             <div class="grid-x grid-margin-x align-center">
                 <section class="cell medium-6 large-4">
                     <!-- Trip Dates section -->
+                    <div id="datePicker">
+                        <label for="start-date">Trip goes from</label>
+                        <!-- please make sure these are autocomplete off -->
+                        <input type="text" id="start-date" name="start-date" autocomplete="off">
+                        <label for="end-date">to</label>
+                        <input type="text" id="end-date" name="end-date" autocomplete="off">
+                        <div>Trip is <span id="tripLength">0</span> days in length</div>
+                    </div>
                 </section>
                 <section class="cell medium-6 large-4">
-                   <button class="button" type="submit" id="submit" value="submit">SUBMIT</button>
+                    <button class="button" id="submit" type="submit" value="submit">SUBMIT</button>
                 </section>
             </div>
         </form>
