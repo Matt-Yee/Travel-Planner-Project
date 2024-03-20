@@ -3,7 +3,7 @@ const apiKey = '6b9efb5cdad556136ff528d1bdc2bae5';
 const forecastDiv = document.getElementById('forecast'); // ID TBD
 const form = document.getElementById('planner-form');
 
-let Destination = JSON.parse(localStorage.getItem('Location')) || [];
+var Destination = JSON.parse(localStorage.getItem('Location')) || [];
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,6 +31,9 @@ form.addEventListener('submit', (event) => {
                 }
             });
     }
+    getBudget();
+    location.assign("activites.html");
+
 });
 
 $(function(){
@@ -102,6 +105,7 @@ $(function(){
   }
 });
 
+
 const budgetEl = document.getElementById("budget");
 const sendBtn = document.getElementById("submit");
 
@@ -137,12 +141,3 @@ fetch(url, options)
 .then(function (data) {
 console.log(data)
 });
-
-
-// try {
-// 	const response = await fetch(url, options);
-// 	const result = await response.json();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
-// }
