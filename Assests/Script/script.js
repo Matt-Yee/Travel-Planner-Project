@@ -6,7 +6,6 @@ const form = document.getElementById('planner-form');
 var Destination = JSON.parse(localStorage.getItem('Location')) || [];
 
 form.addEventListener('submit', (event) => {
-    debugger;
     event.preventDefault();
     const cityInput = document.getElementById('location');
     const city = cityInput.value.trim();
