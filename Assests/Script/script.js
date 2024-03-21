@@ -195,6 +195,10 @@ fetch(url, options)
 console.log(data)
 });
 
+
+
+
+
 // try {
 // 	const response = await fetch(url, options);
 // 	const result = await response.json();
@@ -204,4 +208,3 @@ console.log(data)
 // }
 
 
-console.log("hello6576");

@@ -85,5 +85,3 @@ function goodWeather(){
 
 
 
-
-console.log("Hello");
