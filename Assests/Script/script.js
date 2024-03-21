@@ -116,11 +116,12 @@ function getBudget(){
 }
 
 //added function in to link to activites page
-// sendBtn.addEventListener("click", function(event){
-//     event.preventDefault();
-//     location.assign("activites.html");
-//     getBudget();
-// })
+sendBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    //links to activities page
+    window.location.href="activites.html";
+    getBudget();
+})
 
 
 //currency converter api
