@@ -15,6 +15,7 @@ $('#activityList').on('click', function(event){
 drawPage();
 //function to draw entire page of data based on stored info
 function drawPage(){
+    $('#activityList').empty();
     const tripLength = parseInt(localStorage.getItem('tripLength'));
     let date = dayjs(localStorage.getItem('tripStart'));
     for (let index = 0; index < tripLength; index++) {
@@ -24,7 +25,6 @@ function drawPage(){
 }
 //date is a 6 character string representing the date in
 function generateDay(date){
-    $('#activityList').empty();
     const div = $(`<div class="grid-container fluid" id="activityList-${date}"></div>`);
     const morning = generateCard('morning', date);
     const afternoon = generateCard('afternoon', date);
