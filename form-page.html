@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--currency converter-->
+<div id="currencyConverter">
+    <div class="title">
+        <h1>Convert</h1>
+    </div>
+<!---->
+    <form id="convertForm"></form>
+     <div>
+        <!--amount to be entered in for conversion-->
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" value="0">
+      </div>
+     <div>
+        <!--from one currency to another-->
+        <label for="fromCurrency">From</label>
+        <select id="fromCurrency"></select>
+    </div>
+    <div>
+        <!--currency to whatever you chose the money to be converted into-->
+        <label for="toCurrency">To</label>
+        <select id="toCurrency"></select>
+   </div>
+   <!--button that allows for currency conversion-->
+   <button>Convert</button>
+</form>
+<div id="convertResult"></div>
+</div>
+</body>
+</html>
