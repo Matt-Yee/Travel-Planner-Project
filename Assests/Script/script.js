@@ -5,36 +5,39 @@ const form = document.getElementById('planner-form');
 
 var Destination = JSON.parse(localStorage.getItem('Location')) || [];
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const cityInput = document.getElementById('location');
-    const city = cityInput.value.trim();
+if(form){
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const cityInput = document.getElementById('location');
+        const city = cityInput.value.trim();
 
-    if (city) {
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&days=5`;
+        if (city) {
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&days=5`;
 
-        fetch(forecastUrl)
-            .then((response) => response.json())
-            .then((data) => {
-                if (data && data.list && data.list.length > 0) {
-                    const forecastData = data.list.slice(0, 5).map((item) => {
-                        return {
-                            city: city,
-                            temperature: item.main.temp,
-                            precipitationChance: item.weather[0].id >= 500 && item.weather[0].id <= 504 ? 100 : 0
-                        };
-                    });
+            fetch(forecastUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data && data.list && data.list.length > 0) {
+                        const forecastData = data.list.slice(0, 5).map((item) => {
+                            return {
+                                city: city,
+                                temperature: item.main.temp,
+                                precipitationChance: item.weather[0].id >= 500 && item.weather[0].id <= 504 ? 100 : 0
+                            };
+                        });
 
-                    Destination.push(...forecastData);
+                        Destination.push(...forecastData);
 
-                    console.log(forecastData);
-                }
-            });
-    }
-    getBudget();
-    location.assign("activites.html");
+                        console.log(forecastData);
+                    }
+                });
+        }
+        getBudget();
+        location.assign("activites.html");
 
-});
+    });
+}
+
 
 $(function(){
 
@@ -47,7 +50,7 @@ $(function(){
     let tripEnd = dayjs();
     var dateFormat = "MM/DD/YY",
     from = $( "#start-date" )
-      .datepicker({
+      ?.datepicker({
         changeMonth: true,
         numberOfMonths: 1,
         defaultDate: this.date
@@ -116,7 +119,7 @@ function getBudget(){
 }
 
 //added function in to link to activites page
-sendBtn.addEventListener("click", function(event){
+sendBtn?.addEventListener("click", function(event){
     event.preventDefault();
     //links to activities page
     window.location.href="activites.html";
@@ -125,7 +128,7 @@ sendBtn.addEventListener("click", function(event){
 
 
 //currency converter api
-const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD';
+const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=USD&to=EUR';
 const options = {
 	method: 'GET',
 	headers: {
@@ -133,6 +136,8 @@ const options = {
 		'X-RapidAPI-Host': 'currency-converter241.p.rapidapi.com'
 	}
 };
+
+
 
 fetch(url, options)
 .then(function (response) {
@@ -143,3 +148,4 @@ console.log(data)
 });
 
 
+console.log("hello6576");
