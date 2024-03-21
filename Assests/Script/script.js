@@ -33,6 +33,56 @@ form.addEventListener('submit', (event) => {
     }
 });
 
+
+//functions to display the arrayed data via dom manipulation
+function displayCity() {
+  const cityContainer = document.getElementById('city-container'); //ID TBD
+  cityContainer.innerHTML = '';
+
+  Destination.forEach((destination) => {
+    const cityElement = document.createElement('p'); //creating a p tag for each city. p tag can be changed to any other HTML tag
+    cityElement.textContent = destination.city;
+    cityContainer.appendChild(cityElement);
+  });
+}
+
+function displayTemperature() {
+  const temperatureContainer = document.getElementById('temperature-container'); //ID TBD
+  temperatureContainer.innerHTML = '';
+
+  Destination.forEach((destination) => {
+    const temperatureElement = document.createElement('p');
+    temperatureElement.textContent = destination.temperature;
+    temperatureContainer.appendChild(temperatureElement);
+  });
+}
+
+function displayPrecipitationChance() {
+  const precipitationChanceContainer = document.getElementById('precipitation-chance-container'); //ID TBD
+  precipitationChanceContainer.innerHTML = '';
+
+  Destination.forEach((destination) => {
+    const precipitationChanceElement = document.createElement('p');
+    precipitationChanceElement.textContent = destination.precipitationChance;
+    precipitationChanceContainer.appendChild(precipitationChanceElement);
+  });
+}
+
+
+function updateCSS() {
+  forecastDiv.setAttribute('class', '')
+
+data.forEach((item) =>) {
+  const temp =
+  item.temperature < 10 
+  ? 'freezing' //if the temperature is less than 10, the class will be freezing
+  : item.temperature < 20 
+  ? 'cold' // if the temperature is less than 20, the class will be cold
+  item.temperature < 30 ?
+  ? 'hot'; // if the temperature is less than 30, the class will be hot
+  const precipitation = item.precipitationChance > 50 ? 'rainy' : 'sunny'; //if the precipitation chance is greater than 50, the class will be rainy, otherwise it will be sunny
+}}                      
+
 $(function(){
 
 //lifted off jquery ui webpage, references changed, new actions on the on change functions added
@@ -101,3 +151,48 @@ $(function(){
       if(localStorage.getItem("tripEnd")!=null)tripEnd=dayjs(localStorage.getItem("tripEnd"));
   }
 });
+
+const budgetEl = document.getElementById("budget");
+const sendBtn = document.getElementById("submit");
+
+function getBudget(){
+    const inputValue = budgetEl.value;
+    console.log(inputValue)
+    localStorage.setItem("number", inputValue);
+}
+
+//added function in to link to activites page
+sendBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    //links to activities page
+    window.location.href="activites.html";
+    getBudget();
+})
+
+
+//currency converter api
+const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '99ba836070msh21a815cb6cbff68p1660a8jsn0470850fa436',
+		'X-RapidAPI-Host': 'currency-converter241.p.rapidapi.com'
+	}
+};
+
+fetch(url, options)
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+console.log(data)
+});
+
+
+// try {
+// 	const response = await fetch(url, options);
+// 	const result = await response.json();
+// 	console.log(result);
+// } catch (error) {
+// 	console.error(error);
+// }
