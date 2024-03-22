@@ -75,6 +75,7 @@ function generateCard(dayTime, date){
 
 }
 
+
 modalForm.addEventListener('submit', function(event){
     event.preventDefault();
     // var sourceID = $('body').find('#'+$('#dayIdentity').val());
@@ -98,7 +99,6 @@ modalForm.addEventListener('submit', function(event){
     drawPage();
 
 });
-
 
 
 
