@@ -37,7 +37,7 @@ if(form){
 
     });
 
-
+}
 //functions to display the arrayed data via dom manipulation
 function displayCity() {
   const cityContainer = document.getElementById('city-container'); //ID TBD
@@ -73,20 +73,20 @@ function displayPrecipitationChance() {
 }
 
 
-function updateCSS() {
-  forecastDiv.setAttribute('class', '')
+// function updateCSS() {
+//   forecastDiv.setAttribute('class', '')
 
-data.forEach((item) =>) {
-  const temp =
-  item.temperature < 10
-  ? 'freezing' //if the temperature is less than 10, the class will be freezing
-  : item.temperature < 20
-  ? 'cold' // if the temperature is less than 20, the class will be cold
-  item.temperature < 30 ?
-  ? 'hot'; // if the temperature is less than 30, the class will be hot
-  const precipitation = item.precipitationChance > 50 ? 'rainy' : 'sunny'; //if the precipitation chance is greater than 50, the class will be rainy, otherwise it will be sunny
-}}
-}
+// data.forEach((item) =>) {
+//   const temp =
+//   item.temperature < 10
+//   ? 'freezing' //if the temperature is less than 10, the class will be freezing
+//   : item.temperature < 20
+//   ? 'cold' // if the temperature is less than 20, the class will be cold
+//   item.temperature < 30 ?
+//   ? 'hot'; // if the temperature is less than 30, the class will be hot
+//   const precipitation = item.precipitationChance > 50 ? 'rainy' : 'sunny'; //if the precipitation chance is greater than 50, the class will be rainy, otherwise it will be sunny
+// }}
+// }
 
 
 
@@ -259,5 +259,3 @@ console.log(data)
 // } catch (error) {
 // 	console.error(error);
 // }
-
-
