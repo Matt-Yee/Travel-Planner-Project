@@ -63,8 +63,20 @@ function generateCard(dayTime, date){
 }
 
 
+//this updates the h1 with the city and temp
+function updateTitleContainer() {
+    const titleContainer = document.getElementById('titleContainer');
+    const destination = JSON.parse(localStorage.getItem('Destination')) || [];
+  
+    if (destination.length > 0) {
+      const city = destination[0].city;
+      const temperature = destination[0].temperature;
+      titleContainer.textContent = `🌎 Travel Planner - ${city}, ${temperature}°C`;
+    } 
+  ;
+    }
 
-
+window.onload = updateTitleContainer();
 
 
 
