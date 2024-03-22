@@ -97,6 +97,7 @@ modalForm.addEventListener('submit', function(event){
     }));
 
     drawPage();
+    modalForm.reset();
 
 });
 
