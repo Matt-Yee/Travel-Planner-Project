@@ -1,7 +1,12 @@
-
 //this sees if anything on the activitylist was clicked, if it was a button then it logs the ID of the button clicked. I assume we will use this to inform the modal what info to load.
 $('#activityList').on('click', function(event){
     if(event.target.nodeName==="BUTTON"){
+        //console.log(event.target.id);
+        var sourceID = event.target.id;
+        //console.log(sourceID);
+        $('#dayIdentity').val(sourceID);
+
+        //console.log($('#dayIdentity'));
     }
 });
 //draws page, run at the start of the page loading and should be run again every time the modal is exited to present new data
@@ -57,13 +62,35 @@ function generateCard(dayTime, date){
         activityNameB = x.badWeather;
     }
     console.log(key)
-    const card = $(`<div class="cell large-3"><div class="card text-center" style="width: 300px"><h4>${dayTime}</h4><div class="card section"><button class="button" type="button" style="height: 200px" id="${key}">☀️${activityNameG}<br><br><br>⛈️${activityNameB}</button></div></div></div>`);
+    const card = $(`<div class="cell large-3"><div class="card text-center" style="width: 300px"><h4>${dayTime}</h4><div class="card section"><button class="button" type="button" style="height: 200px" id="${key}" data-open="activityModal">☀️${activityNameG}<br><br><br>⛈️${activityNameB}</button></div></div></div>`);
     return card;
 
 }
 
 
+modalForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    // var sourceID = $('body').find('#'+$('#dayIdentity').val());
+    var sourceID = $('#dayIdentity').val();
 
+    // var grandParent = sourceID.closest('.card');
+
+    // grandParent.empty();
+    let actGood = $('#activityGood').val();
+    let actBad = $('#activityBad').val();
+
+    // console.log(grandParent + '\n'+actGood+'\n'+ actBad);
+    // var cardNew = $(`<h4>${actGood}</h4><div class="card section"><p>${actBad}</p></div>`);
+    // grandParent.append(cardNew);
+
+    localStorage.setItem(sourceID, JSON.stringify({
+        goodWeather: actGood,
+        badWeather: actBad
+    }));
+
+    drawPage();
+
+});
 
 
 

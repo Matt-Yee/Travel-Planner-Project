@@ -86,8 +86,6 @@ data.forEach((item) =>) {
   ? 'hot'; // if the temperature is less than 30, the class will be hot
   const precipitation = item.precipitationChance > 50 ? 'rainy' : 'sunny'; //if the precipitation chance is greater than 50, the class will be rainy, otherwise it will be sunny
 }}
-}
-
 
 
 //functions to display the arrayed data via dom manipulation
@@ -247,8 +245,6 @@ fetch(url, options)
 .then(function (data) {
 console.log(data)
 });
-
-
 
 
 

@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Activities - Travel Planner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Activities - Travel Planner</title>
 
- <!-- FOUNDATION CSS -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
- <!-- JQuery UI CSS -->
- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- ___________________FOUNDATION CSS______________________________ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
 
- <!-- Foundation JavaScript -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
- <!-- JQuery UI Javascript -->
- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <!-- ______________________JQuery UI CSS________________________ -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-
-  <link rel="stylesheet" href="./Assests/CSS/style.css">
+    <!-- ___________________Custom CSS___________________ -->
+    <link rel="stylesheet" href="./Assests/CSS/style.css">
 </head>
 
 <body>
-<!--added id to variable to show budget allowance in activities page-->
+    <!-- ______________MODAL START________________ -->
+    <div class="reveal" id="activityModal" data-reveal>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <form id="activityModalForm">
+            <label for="activityGood">Good Weather Activity: </label>
+            <input type="text" id="activityGood" name="activityGood">
+            <label for="activityBad">Bad Weather Alternate: </label>
+            <input type="text" id="activityBad" name="activityBad">
+            <input type="hidden" id="dayIdentity" value="">
+            <button class="button" data-close type="submit" id="modalSubmit" value="submit">SUBMIT</button>
+        </form>
+    </div>
+    <!-- ______________MODAL END ______________________ -->
 
 
 
@@ -36,18 +44,19 @@
     </div>
     <div id="activityList">
     </div>
-    <div class="reveal" id="exampleModal1" data-reveal>
-        <h1>Awesome. I Have It.</h1>
-        <p class="lead">Your couch. It is mine.</p>
-        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
 
 
 
 
+<!-- ________________Foundation JavaScript_____________________ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+<script>$(document).foundation();</script>
+
+<!-- _______________JQuery UI Javascript___________________ -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+<!-- <script src="./Assests/Script/script.js"></script> -->
 <script src="./Assests/Script/activities.js"></script>
 </body>
 </html>
