@@ -19,14 +19,16 @@
 <body>
     <!-- ______________MODAL START________________ -->
     <div class="reveal" id="activityModal" data-reveal>
-        <form>
-            <label for="activity">Activity Name: <input type="text" id="activity" name="activity"></label>
-            <p>Select Weather Conditions:</p>
-            <input type="radio" id="indoors" name="conditions"><label for="indoors">Indoors</label>
-            <input type="radio" id="outdoors" name="conditions"><label for="outdoors">Outdoors</label>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <form id="activityModalForm">
+            <label for="activityGood">Good Weather Activity: </label>
+            <input type="text" id="activityGood" name="activityGood">
+            <label for="activityBad">Bad Weather Alternate: </label>
+            <input type="text" id="activityBad" name="activityBad">
+            <input type="hidden" id="dayIdentity" value="">
+            <button class="button" data-close type="submit" id="modalSubmit" value="submit">SUBMIT</button>
         </form>
     </div>
     <!-- ______________MODAL END ______________________ -->
