@@ -1,3 +1,11 @@
+// //pulls budget saved in local storage to activities page
+// var tripBudget = localStorage.getItem("budget");
+// //selects element in html with id of x from activities page
+// var budgetEl = document.getElementById("x");
+
+var modalForm = document.getElementById('activityModalForm');
+
+
 //this sees if anything on the activitylist was clicked, if it was a button then it logs the ID of the button clicked. I assume we will use this to inform the modal what info to load.
 $('#activityList').on('click', function(event){
     if(event.target.nodeName==="BUTTON"){
@@ -62,7 +70,7 @@ function generateCard(dayTime, date){
         activityNameB = x.badWeather;
     }
     console.log(key)
-    const card = $(`<div class="cell large-3"><div class="card text-center" style="width: 300px"><h4>${dayTime}</h4><div class="card section"><button class="button" type="button" style="height: 200px" id="${key}" data-open="activityModal">☀️${activityNameG}<br><br><br>⛈️${activityNameB}</button></div></div></div>`);
+    const card = $(`<div class="cell large-3"><div class="card text-center" style="width: 300px"><h4>${dayTime}</h4><div class="card section"><button class="button" data-open="activityModal" type="button" style="height: 200px" id="${key}">☀️${activityNameG}<br><br><br>⛈️${activityNameB}</button></div></div></div>`);
     return card;
 
 }
@@ -89,6 +97,7 @@ modalForm.addEventListener('submit', function(event){
     }));
 
     drawPage();
+    modalForm.reset();
 
 });
 

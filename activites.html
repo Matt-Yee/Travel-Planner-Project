@@ -19,9 +19,7 @@
 <body>
     <!-- ______________MODAL START________________ -->
     <div class="reveal" id="activityModal" data-reveal>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+
         <form id="activityModalForm">
             <label for="activityGood">Good Weather Activity: </label>
             <input type="text" id="activityGood" name="activityGood">
@@ -29,6 +27,7 @@
             <input type="text" id="activityBad" name="activityBad">
             <input type="hidden" id="dayIdentity" value="">
             <button class="button" data-close type="submit" id="modalSubmit" value="submit">SUBMIT</button>
+            <button class="button redbkg" onclick="this.form.reset();" data-close aria-label="Close modal" type="button">CANCEL</button>
         </form>
     </div>
     <!-- ______________MODAL END ______________________ -->
