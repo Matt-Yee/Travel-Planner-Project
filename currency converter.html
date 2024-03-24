@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
  <!-- JQuery UI CSS -->
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
     <!--added link to activities page-->
         <link a href="./activites.html" target="_blank">Activities</a>
-    <script src="./Assests/Script/script.js"></script>
+
 </head>
 <body>
     <!--currency converter-->
@@ -25,11 +26,11 @@
         <h1>Currency Converter</h1>
     </div>
 <!---->
-    <form id="convertForm"></form>
+    <form id="convertForm">
      <div>
         <!--amount to be entered in for conversion-->
-        <label for="amount">Amount</label>
-        <input type="number" id="amount" value="0">
+        <label for="amount">amount</label>
+        <input type="number" id="amount">
       </div>
      <div>
         <!--from one currency to another-->
@@ -54,11 +55,14 @@
             </select>
    </div>
    <!--button that allows for currency conversion-->
-   <button>Convert</button>
-</form>
-<div id="convertResult"></div>
-</div>
+   <button class="button" id="submit" type="submit">Convert</button>
 
+
+<div> <p id="convertResult"></p></div>
+</div>
+</form>
+
+<script src="./Assests/Script/convert.js"></script>
 
 </body>
 </html>
