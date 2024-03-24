@@ -18,7 +18,7 @@
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
- 
+
 
   <link rel="stylesheet" href="./Assests/CSS/style.css">
 </head>
@@ -38,9 +38,19 @@
                 </section>
 
                 <section class="cell medium-6 large-4">
-                    <label for="budget">BUDGET:
+                    <!-- input for budget in USD -->
+                    <label for="budget">Budget USD:
                         <input type="text" id="budget" name="budget">
                     </label>
+                    <!-- target currency -->
+                    <label for="money">Target currency</label>
+                    <!-- options for target currency dropdown list -->
+                    <select id="money">
+                        <option value="EUR">EUR</option>
+                        <option value="JPY">JPY</option>
+                        <option value="GBP">GBP</option>
+
+                    </select>
                 </section>
 
             </div>

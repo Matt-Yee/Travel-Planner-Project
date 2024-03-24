@@ -173,7 +173,6 @@ $(function(){
   }
 });
 
-
 const budgetEl = document.getElementById("budget");
 const sendBtn = document.getElementById("submit");
 
@@ -184,7 +183,7 @@ function getBudget(){
 }
 
 //added function in to link to activites page
-// sendBtn.addEventListener("click", function(event){
+// sendBtn?.addEventListener("click", function(event){
 //     event.preventDefault();
 //     location.assign("activites.html");
 //     getBudget();
@@ -192,7 +191,7 @@ function getBudget(){
 
 
 //currency converter api
-const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=UYU&to=USD';
+const url = 'https://currency-converter241.p.rapidapi.com/conversion_rate?from=USD&to=EUR';
 const options = {
 	method: 'GET',
 	headers: {
@@ -201,6 +200,8 @@ const options = {
 	}
 };
 
+
+
 fetch(url, options)
 .then(function (response) {
   return response.json();
@@ -208,3 +209,15 @@ fetch(url, options)
 .then(function (data) {
 console.log(data)
 });
+
+
+
+
+
+// try {
+// 	const response = await fetch(url, options);
+// 	const result = await response.json();
+// 	console.log(result);
+// } catch (error) {
+// 	console.error(error);
+// }
