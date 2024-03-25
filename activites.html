@@ -34,32 +34,41 @@
 
 
 
-    <header id='mainHeader'>
-        <h1>🌎 Travel Planner</h1>
+    <header id='mainHeader' class="top-bar">
+        <div class="top-bar-left">
+            <h1><a id="pageHeader" href="./index.html">🌎 Travel Planner</a></h1>
+        </div>
+        <div class="top-bar-right">
         <!-- ADD IN DATES AND LOCATION DATA -->
         <!--added id to variable to show budget allowance in activities page-->
-        <p id="x">Budget</p>
+        <p id="budgetDisplay"></p>
         <!-- added link to Currency converter page-->
-        <link a href="./currency converter.html" target="_blank">CurrencyConverter</a>
+            <a id="currencyLink" href="./currency converter.html"><h4>Currency Converter</h4></a>
+
+        </div>
     </header>
+
+
     <div class="grid-container fluid" id="activityHeader">
 
     </div>
+
+
     <div id="activityList">
     </div>
 
 
-      
 
-<!-- ________________Foundation JavaScript_____________________ -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-<script>$(document).foundation();</script>
 
-<!-- _______________JQuery UI Javascript___________________ -->
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-<!-- <script src="./Assests/Script/script.js"></script> -->
-<script src="./Assests/Script/activities.js"></script>
+    <!-- ________________Foundation JavaScript_____________________ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <script>$(document).foundation();</script>
+
+    <!-- _______________JQuery UI Javascript___________________ -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <!-- <script src="./Assests/Script/script.js"></script> -->
+    <script src="./Assests/Script/activities.js"></script>
 </body>
 </html>

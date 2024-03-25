@@ -45,14 +45,26 @@ fetch(url, options)
 .then(function (response) {
 endTotal = response.total
 var totalLine = document.getElementById("convertResult")
-totalLine.innerText = endTotal
-localStorage.setItem("converted", endTotal)
+totalLine.innerText = endTotal.toFixed(2);
+localStorage.setItem("converted", endTotal.toFixed(2))
 console.log(endTotal)
 });
 })
 
+var budgetVal = localStorage.getItem("Budget");
+    var budgetCur = localStorage.getItem("money");
+    $('#budgetDisplay').html('<h4>'+budgetVal+' '+budgetCur+'</h4>');
 
 
+    const titleContainer = document.getElementById('pageHeader');
+    const destination = JSON.parse(localStorage.getItem('Destination')) || [];
+
+    if (destination.length > 0) {
+      const city = destination[0].city;
+      const temperature = destination[0].temperature;
+      const fahrenheit = (temperature * 9/5 + 32).toFixed(1);
+      titleContainer.innerText = `🌎 Travel Planner - ${city}, ${fahrenheit}°F , ${temperature}°C`;
+    }
 
 // try {
 // 	const response = await fetch(url, options);

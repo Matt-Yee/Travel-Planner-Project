@@ -11,6 +11,7 @@ $('#activityList').on('click', function(event){
     if(event.target.nodeName==="BUTTON"){
         //console.log(event.target.id);
         var sourceID = event.target.id;
+        var budgetVal = localStorage.getItem("money");
         //console.log(sourceID);
         $('#dayIdentity').val(sourceID);
 
@@ -28,6 +29,12 @@ function drawPage(){
         generateDay(date.format('MM-DD-YY').toString());
         date=date.add(1, 'day');
     }
+
+    // Added by AARON
+    var budgetVal = localStorage.getItem("Budget");
+    var budgetCur = localStorage.getItem("money");
+    $('#budgetDisplay').html('<h4>'+budgetVal+' '+budgetCur+'</h4>');
+    updateTitleContainer();
 }
 //date is a 6 character string representing the date in
 function generateDay(date){
@@ -36,7 +43,7 @@ function generateDay(date){
     const afternoon = generateCard('afternoon', date);
     const evening = generateCard('evening', date);
     const dateParsed = dayjs(date, 'MM-DD-YY').format('dddd, MMMM DD');
-    const budget = `Budget: ${localStorage.getItem('budget')} ${localStorage.getItem('targetCurrency')}`;
+    const budget = `Budget: ${localStorage.getItem('Budget')} ${localStorage.getItem('money')}`;
     const dateHeader = $(`<h3>${dateParsed}</h3><h5>${budget}</h5>`);
     const div2 = $('<div class="grid-x grid-padding-x align-center"></div>');
     //once budget and weather are integrated, we can procedurally attach them
@@ -76,35 +83,43 @@ function generateCard(dayTime, date){
 }
 
 
+
+// MODAL FORM LISTENER
 modalForm.addEventListener('submit', function(event){
     event.preventDefault();
-    // var sourceID = $('body').find('#'+$('#dayIdentity').val());
+
+    //Get Id of section to be updated
     var sourceID = $('#dayIdentity').val();
 
-    // var grandParent = sourceID.closest('.card');
 
-    // grandParent.empty();
     let actGood = $('#activityGood').val();
     let actBad = $('#activityBad').val();
 
-    // console.log(grandParent + '\n'+actGood+'\n'+ actBad);
-    // var cardNew = $(`<h4>${actGood}</h4><div class="card section"><p>${actBad}</p></div>`);
-    // grandParent.append(cardNew);
-
+    //Store entries using section ID as key
     localStorage.setItem(sourceID, JSON.stringify({
         goodWeather: actGood,
         badWeather: actBad
     }));
 
+    // redraw page
     drawPage();
+
+    // clear form for new entry
     modalForm.reset();
 
 });
 
+function updateTitleContainer() {
+    const titleContainer = document.getElementById('pageHeader');
+    const destination = JSON.parse(localStorage.getItem('Destination')) || [];
 
-
-
-
+    if (destination.length > 0) {
+      const city = destination[0].city;
+      const temperature = destination[0].temperature;
+      const fahrenheit = (temperature * 9/5 + 32).toFixed(1);
+      titleContainer.innerText = `🌎 Travel Planner - ${city}, ${fahrenheit}°F , ${temperature}°C`;
+    }
+}
 
 
 
