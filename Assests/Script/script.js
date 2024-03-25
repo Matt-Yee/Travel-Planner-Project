@@ -24,7 +24,6 @@ function getWeather(){
         const cityInput = document.getElementById('location');
         const city = cityInput.value.trim();
         localStorage.setItem("city", city);
-        debugger;
         if (city) {
             const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}&days=5`;
             fetch(forecastUrl)
