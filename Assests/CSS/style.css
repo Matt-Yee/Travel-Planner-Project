@@ -35,3 +35,7 @@ p {
 .redbkg{
     background-color: red;
 }
+
+#convertForm{
+    max-width: 30vw;
+}
