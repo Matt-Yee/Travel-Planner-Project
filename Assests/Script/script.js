@@ -179,7 +179,7 @@ const sendBtn = document.getElementById("submit");
 function getBudget(){
     const inputValue = budgetEl.value;
     console.log(inputValue)
-    localStorage.setItem("number", inputValue);
+    localStorage.setItem("Budget", inputValue);
 }
 
 //added function in to link to activites page
