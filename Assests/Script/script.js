@@ -157,14 +157,16 @@ $(function(){
       if(localStorage.getItem("tripEnd")!=null)tripEnd=dayjs(localStorage.getItem("tripEnd"));
   }
 });
-
+//enters in the budget amount for the traveler
 const budgetEl = document.getElementById("budget");
+//
 const sendBtn = document.getElementById("submit");
 
 function getBudget(){
     const inputValue = budgetEl.value;
     console.log(inputValue)
-    localStorage.setItem("Budget", inputValue);
+    //saves in local storage as budgetUSD.
+    localStorage.setItem("budgetUSD", inputValue);
 }
 
 
