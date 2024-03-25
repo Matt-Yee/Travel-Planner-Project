@@ -116,7 +116,7 @@ function updateTitleContainer() {
     if (destination.length > 0) {
       const city = destination[0].city;
       const temperature = destination[0].temperature;
-      const fahrenheit = (temp * 9/5 + 32).toFixed(1);
+      const fahrenheit = (temperature * 9/5 + 32).toFixed(1);
       titleContainer.innerText = `🌎 Travel Planner - ${city}, ${fahrenheit}°F , ${temperature}°C`;
     }
 }
