@@ -33,6 +33,7 @@ function drawPage(){
     // Added by AARON
     var budgetVal = localStorage.getItem("Budget");
     var budgetCur = localStorage.getItem("money");
+    console.log(`${budgetVal}  ${budgetCur}`);
     $('#budgetDisplay').html('<h4>'+budgetVal+' '+budgetCur+'</h4>');
     updateTitleContainer();
 }
@@ -43,8 +44,7 @@ function generateDay(date){
     const afternoon = generateCard('afternoon', date);
     const evening = generateCard('evening', date);
     const dateParsed = dayjs(date, 'MM-DD-YY').format('dddd, MMMM DD');
-    const budget = `Budget: ${localStorage.getItem('Budget')} ${localStorage.getItem('money')}`;
-    const dateHeader = $(`<h3>${dateParsed}</h3><h5>${budget}</h5>`);
+    const dateHeader = $(`<h3>${dateParsed}</h3>`);
     const div2 = $('<div class="grid-x grid-padding-x align-center"></div>');
     //once budget and weather are integrated, we can procedurally attach them
     const weather = '';
