@@ -3,65 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="C:\Users\seth\bootcamp\project 1\Travel-Planner-Project\Assests\CSS\style.css">
-    <script src="./Assests/Script/activities.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-    <!-- JQuery UI Javascript -->
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
- <!-- JQuery UI CSS -->
- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <title>Currency Converter - Travel Planner</title>
 
-    <!--added link to activities page-->
-        <link a href="./activites.html" target="_blank">Activities</a>
+    <!-- ___________________FOUNDATION CSS______________________________ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+
+    <!-- ______________________JQuery UI CSS________________________ -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- ___________________Custom CSS___________________ -->
+    <link rel="stylesheet" href="./Assests/CSS/style.css">
 
 </head>
 <body>
+    <header id='mainHeader' class="top-bar">
+        <div class="top-bar-left">
+            <h1><a id="pageHeader" href="./index.html">🌎 Travel Planner</a></h1>
+        </div>
+        <div class="top-bar-right">
+        <!-- ADD IN DATES AND LOCATION DATA -->
+        <!--added id to variable to show budget allowance in activities page-->
+        <p id="budgetDisplay" >Budget</p>
+        <!-- added link to Activities page-->
+        <a href="./activites.html" target="_blank"><h4>Activities</h4></a>
+        </div>
+    </header>
     <!--currency converter-->
-<div id="currencyConverter">
-    <div class="title">
-        <h1>Currency Converter</h1>
+    <div id="currencyConverter" class="grid-container fluid">
+        <div class="title text-center">
+            <h1>Currency Converter</h1>
+        </div>
+    <!---->
+        <form id="convertForm" class="grid-container fluid" >
+            <div class="grid-y grid-padding-y align-center">
+                <!--amount to be entered in for conversion-->
+                <label for="amount">amount</label>
+                <input type="number" id="amount">
+            </div>
+            <div class="grid-y grid-margin-y align-center ">
+                <!--from one currency to another-->
+                <label for="fromCurrency">From</label>
+                <select id="fromCurrency">
+                    <!-- options to switch between currencies -->
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="GBP">GBP</option>
+                    </select>
+            </div>
+            <div class="grid-y grid-margin-y align-center ">
+                <!--currency to whatever you chose the money to be converted into-->
+                <label for="toCurrency">To</label>
+                <select id="toCurrency">
+                    <!-- options to switch between currencies -->
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                    <option value="GBP">GBP</option>
+                    </select>
+            </div>
+            <!--button that allows for currency conversion-->
+            <button class="button" id="submit" type="submit">Convert</button>
+        </form>
+
+        <div class="grid-x grid-margin-x align-center"><p id="convertResult"></p></div>
     </div>
-<!---->
-    <form id="convertForm">
-     <div>
-        <!--amount to be entered in for conversion-->
-        <label for="amount">amount</label>
-        <input type="number" id="amount">
-      </div>
-     <div>
-        <!--from one currency to another-->
-        <label for="fromCurrency">From</label>
-        <select id="fromCurrency">
-            <!-- options to switch between currencies -->
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="JPY">JPY</option>
-            <option value="GBP">GBP</option>
-            </select>
-    </div>
-    <div>
-        <!--currency to whatever you chose the money to be converted into-->
-        <label for="toCurrency">To</label>
-        <select id="toCurrency">
-            <!-- options to switch between currencies -->
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="JPY">JPY</option>
-            <option value="GBP">GBP</option>
-            </select>
-   </div>
-   <!--button that allows for currency conversion-->
-   <button class="button" id="submit" type="submit">Convert</button>
 
 
-<div> <p id="convertResult"></p></div>
-</div>
-</form>
+<!-- ________________Foundation JavaScript_____________________ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+<script>$(document).foundation();</script>
 
+<!-- _______________JQuery UI Javascript___________________ -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 <script src="./Assests/Script/convert.js"></script>
 
 </body>
