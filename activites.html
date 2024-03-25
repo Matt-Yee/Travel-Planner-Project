@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -6,31 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Activities - Travel Planner</title>
 
-    <!-- ___________________FOUNDATION CSS______________________________ -->
+    <!-- FOUNDATION CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
-
-    <!-- ______________________JQuery UI CSS________________________ -->
+    <!-- JQuery UI CSS -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-    <!-- ___________________Custom CSS___________________ -->
+    <!-- Foundation JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <!-- JQuery UI Javascript -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+
+
     <link rel="stylesheet" href="./Assests/CSS/style.css">
-</head>
+    </head>
 
-<body>
-    <!-- ______________MODAL START________________ -->
-    <div class="reveal" id="activityModal" data-reveal>
-
-        <form id="activityModalForm">
-            <label for="activityGood">Good Weather Activity: </label>
-            <input type="text" id="activityGood" name="activityGood">
-            <label for="activityBad">Bad Weather Alternate: </label>
-            <input type="text" id="activityBad" name="activityBad">
-            <input type="hidden" id="dayIdentity" value="">
-            <button class="button" data-close type="submit" id="modalSubmit" value="submit">SUBMIT</button>
-            <button class="button redbkg" onclick="this.form.reset();" data-close aria-label="Close modal" type="button">CANCEL</button>
-        </form>
-    </div>
-    <!-- ______________MODAL END ______________________ -->
+    <body>
+    <!--added id to variable to show budget allowance in activities page-->
 
 
 
@@ -44,6 +38,11 @@
     </header>
     <div class="grid-container fluid" id="activityHeader">
 
+        <header id='mainHeader'>
+            <h1 id="titleContainer">🌎 Travel Planner</h1>
+            <!-- ADD IN DATES AND LOCATION DATA -->
+        </header>
+        <div class="grid-container fluid" id="activityHeader">
     </div>
     <div id="activityList">
     </div>

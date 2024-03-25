@@ -1,128 +1,90 @@
-
 const apiKey = '6b9efb5cdad556136ff528d1bdc2bae5';
 const forecastDiv = document.getElementById('forecast'); // ID TBD
 const form = document.getElementById('planner-form');
 
-var Destination = JSON.parse(localStorage.getItem('Location')) || [];
+var Destination = JSON.parse(localStorage.getItem('Destination')) || [];
 
-if(form){
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const cityInput = document.getElementById('location');
-        const city = cityInput.value.trim();
+function updateTitleContainer() {
+  const titleContainer = document.getElementById('titleContainer');
+  const destination = JSON.parse(localStorage.getItem('Destination')) || [];
 
-        if (city) {
-            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&days=5`;
+  if (destination.length > 0) {
+    const city = destination[0].city;
+    const temperature = destination[0].temperature;
+    titleContainer.textContent = `🌎 Travel Planner - ${city}, ${temperature}°C`;
+  } 
+;
+  }
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const cityInput = document.getElementById('location');
+  const city = cityInput.value.trim();
 
-            fetch(forecastUrl)
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data && data.list && data.list.length > 0) {
-                        const forecastData = data.list.slice(0, 5).map((item) => {
-                            return {
-                                city: city,
-                                temperature: item.main.temp,
-                                precipitationChance: item.weather[0].id >= 500 && item.weather[0].id <= 504 ? 100 : 0
-                            };
-                        });
+  if (city) {
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&days=5`;
 
-                        Destination.push(...forecastData);
+      fetch(forecastUrl)
+          .then((response) => response.json())
+          .then((data) => {
+              if (data && data.list && data.list.length > 0) {
+                  const forecastData = data.list.slice(0, 5).map((item) => {
+                      return {
+                          city: city,
+                          temperature: item.main.temp,
+                          precipitationChance: item.weather[0].id >= 500 && item.weather[0].id <= 504 ? 100 : 0
+                      };
+                  });
 
-                        console.log(forecastData);
-                    }
-                });
-        }
-        getBudget();
-        location.assign("activites.html");
+                  Destination.push(...forecastData);
 
-    });
+                  // Add this line to update the h1 element
+                  updateTitleContainer();
 
-}
+                  console.log(forecastData);
+                  localStorage.setItem('Destination', JSON.stringify(Destination));
+              }
+          });
+  }
+  updateTitleContainer();
+  location.assign("activites.html");
+});
+
+
+
+
 //functions to display the arrayed data via dom manipulation
-function displayCity() {
-  const cityContainer = document.getElementById('city-container'); //ID TBD
-  cityContainer.innerHTML = '';
+// function displayCity() {
+//   const cityContainer = document.getElementById('city-container'); //ID TBD
+//   cityContainer.innerHTML = '';
 
-  Destination.forEach((destination) => {
-    const cityElement = document.createElement('p'); //creating a p tag for each city. p tag can be changed to any other HTML tag
-    cityElement.textContent = destination.city;
-    cityContainer.appendChild(cityElement);
-  });
-}
-
-function displayTemperature() {
-  const temperatureContainer = document.getElementById('temperature-container'); //ID TBD
-  temperatureContainer.innerHTML = '';
-
-  Destination.forEach((destination) => {
-    const temperatureElement = document.createElement('p');
-    temperatureElement.textContent = destination.temperature;
-    temperatureContainer.appendChild(temperatureElement);
-  });
-}
-
-function displayPrecipitationChance() {
-  const precipitationChanceContainer = document.getElementById('precipitation-chance-container'); //ID TBD
-  precipitationChanceContainer.innerHTML = '';
-
-  Destination.forEach((destination) => {
-    const precipitationChanceElement = document.createElement('p');
-    precipitationChanceElement.textContent = destination.precipitationChance;
-    precipitationChanceContainer.appendChild(precipitationChanceElement);
-  });
-}
-
-
-// function updateCSS() {
-//   forecastDiv.setAttribute('class', '')
-
-// data.forEach((item) =>) {
-//   const temp =
-//   item.temperature < 10
-//   ? 'freezing' //if the temperature is less than 10, the class will be freezing
-//   : item.temperature < 20
-//   ? 'cold' // if the temperature is less than 20, the class will be cold
-//   item.temperature < 30 ?
-//   ? 'hot'; // if the temperature is less than 30, the class will be hot
-//   const precipitation = item.precipitationChance > 50 ? 'rainy' : 'sunny'; //if the precipitation chance is greater than 50, the class will be rainy, otherwise it will be sunny
-// }}
+//   Destination.forEach((destination) => {
+//     const cityElement = document.createElement('p'); //creating a p tag for each city. p tag can be changed to any other HTML tag
+//     cityElement.textContent = destination.city;
+//     cityContainer.appendChild(cityElement);
+//   });
 // }
 
+// function displayTemperature() {
+//   const temperatureContainer = document.getElementById('temperature-container'); //ID TBD
+//   temperatureContainer.innerHTML = '';
 
+//   Destination.forEach((destination) => {
+//     const temperatureElement = document.createElement('p');
+//     temperatureElement.textContent = destination.temperature;
+//     temperatureContainer.appendChild(temperatureElement);
+//   });
+// }
 
-//functions to display the arrayed data via dom manipulation
-function displayCity() {
-  const cityContainer = document.getElementById('city-container'); //ID TBD
-  cityContainer.innerHTML = '';
+// function displayPrecipitationChance() {
+//   const precipitationChanceContainer = document.getElementById('precipitation-chance-container'); //ID TBD
+//   precipitationChanceContainer.innerHTML = '';
 
-  Destination.forEach((destination) => {
-    const cityElement = document.createElement('p'); //creating a p tag for each city. p tag can be changed to any other HTML tag
-    cityElement.textContent = destination.city;
-    cityContainer.appendChild(cityElement);
-  });
-}
-
-function displayTemperature() {
-  const temperatureContainer = document.getElementById('temperature-container'); //ID TBD
-  temperatureContainer.innerHTML = '';
-
-  Destination.forEach((destination) => {
-    const temperatureElement = document.createElement('p');
-    temperatureElement.textContent = destination.temperature;
-    temperatureContainer.appendChild(temperatureElement);
-  });
-}
-
-function displayPrecipitationChance() {
-  const precipitationChanceContainer = document.getElementById('precipitation-chance-container'); //ID TBD
-  precipitationChanceContainer.innerHTML = '';
-
-  Destination.forEach((destination) => {
-    const precipitationChanceElement = document.createElement('p');
-    precipitationChanceElement.textContent = destination.precipitationChance;
-    precipitationChanceContainer.appendChild(precipitationChanceElement);
-  });
-}
+//   Destination.forEach((destination) => {
+//     const precipitationChanceElement = document.createElement('p');
+//     precipitationChanceElement.textContent = destination.precipitationChance;
+//     precipitationChanceContainer.appendChild(precipitationChanceElement);
+//   });
+// }
 
 
 // function updateCSS() {
